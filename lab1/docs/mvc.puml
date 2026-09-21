@@ -1,0 +1,59 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+interface ModelListener {
+    + onModelChanged()
+}
+
+class AgeModel {
+    - birthDate : LocalDate
+    - result : AgeResult
+    - errorMessage : String
+    - listeners : List<ModelListener>
+    + setData(day, month, year)
+    + addListener(listener)
+    + getBirthDate()
+    + getResult()
+    + getErrorMessage()
+    - notifyListeners()
+    - calculateAge()
+}
+
+class "AgeResult" as AgeResult <<record>> {
+    + years : int
+    + months : int
+    + days : int
+    + totalDays : long
+    + totalMinutes : long
+}
+
+class Main {
+    + start(stage)
+}
+
+class MainController {
+    - model : AgeModel
+    - inputDialogController : InputDialogController
+    + initialize()
+    + handleOpenInput()
+    + onDateEntered(day, month, year)
+    + onModelChanged()
+}
+
+class InputDialogController {
+    - mainController : MainController
+    - dialogStage : Stage
+    + setMainController(c)
+    + setDialogStage(s)
+    + setValues(day, month, year)
+    + handleOk()
+    + handleCancel()
+}
+
+MainController ..|> ModelListener : implements
+AgeModel o-- AgeResult : contains
+AgeModel "1" --> "*" ModelListener : notifies
+MainController "1" o-- "1" AgeModel : uses
+MainController --> InputDialogController : manages
+Main --> MainController : loads FXML
+@enduml

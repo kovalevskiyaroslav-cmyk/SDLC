@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="by.bsuir.agecalc.controller.InputDialogController"
+      alignment="CENTER" spacing="10" prefWidth="320" prefHeight="220">
+    <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+
+    <Label text="Введите дату рождения"/>
+    <Label text="(день, месяц, год)" style="-fx-text-fill: gray;"/>
+
+    <HBox spacing="5" alignment="CENTER">
+        <TextField fx:id="txtDay" promptText="ДД" prefWidth="60"/>
+        <TextField fx:id="txtMonth" promptText="ММ" prefWidth="60"/>
+        <TextField fx:id="txtYear" promptText="ГГГГ" prefWidth="80"/>
+    </HBox>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="OK" onAction="#handleOk" defaultButton="true"/>
+        <Button text="Отмена" onAction="#handleCancel" cancelButton="true"/>
+    </HBox>
+
+    <Label fx:id="lblDialogError" style="-fx-text-fill: red;"/>
+</VBox>
