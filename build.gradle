@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group = 'by.bsuir.agecalc'
+group = 'by.bsuir.tourreview'
 version = '1.0-SNAPSHOT'
 
 repositories {
