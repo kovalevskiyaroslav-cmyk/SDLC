@@ -6,7 +6,4 @@
 4. Сохранить в srs/images/:
     - use-case.png
     - architecture.png
-    - mockup-place-card.png
-    - mockup-review-form.png
-    - mockup-moderation.png
-5. Если SysON недоступен — отрисовать мокапы в draw.io по спецификации mockups.sysml и сохранить с теми же именами.
+    - mockup.png
